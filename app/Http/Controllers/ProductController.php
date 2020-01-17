@@ -21,6 +21,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
 
@@ -34,8 +35,6 @@ class ProductController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-
-        dd($cart);
 
         return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }

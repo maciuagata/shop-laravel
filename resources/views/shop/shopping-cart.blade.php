@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    @if(Session::has('cart'))
+    
+    @if(session('cart'))
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <ul class="list-group">
@@ -23,7 +24,7 @@
                                 </div>
                             </li>
                     @endforeach
-                    
+
                 </ul>
             </div>
         </div>
