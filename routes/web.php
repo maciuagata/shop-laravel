@@ -46,6 +46,11 @@ Route::get('/remove/{id}', [
     'as' => 'product.remove'
 ]);
 
+Route::get('/increase/{id}', [
+    'uses' => 'ProductController@getIncreaseByOne',
+    'as' => 'product.increase'
+]);
+
 Route::group(['prefix' => 'users'], function() {
     
     Route::group(['middleware' => 'guest'], function() {
