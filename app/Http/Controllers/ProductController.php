@@ -98,7 +98,7 @@ class ProductController extends Controller
         public function postCheckout(Request $request)
         {
             if (!Session::has('cart')) {
-                return redirect()->route('shop.shoppingCart');
+                return redirect()->route('product.shoppingCart');
             }
             $oldCart = Session::get('cart');
             $cart = new Cart($oldCart);

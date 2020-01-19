@@ -15,7 +15,7 @@
                                 <span class="badge">{{ $product['qty'] }}</span>
                                 <strong>{{ $product['item']['title'] }}</strong>
                                 <span class="label label-success">{{ $product['price'] }}</span>
-                                Action
+                                Action:
                                 <div class="btn-group">
                                     <a class="btn btn-danger btn-sm" href="{{ route('product.reduceByOne', ['id' => $product['item']['id']]) }}"><i class="fas fa-minus-square"></i></a>
                                     <a class="btn btn-success btn-sm" href="{{ route('product.increase', ['id' => $product['item']['id']]) }}"><i class="fas fa-plus-square"></i></a>
