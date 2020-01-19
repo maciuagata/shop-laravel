@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Cart;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Order;
 
 use App\Http\Requests;
 use Session;
+use Auth;
+use Stripe\Charge;
+use Stripe\Stripe;
+
 
 class ProductController extends Controller
 {
@@ -98,11 +103,11 @@ class ProductController extends Controller
             $oldCart = Session::get('cart');
             $cart = new Cart($oldCart);
     
-            Stripe::setApiKey('');
+            Stripe::setApiKey('sk_test_40ecFztaU8JioBmKFXYggGgC00Cj1HoxYJ');
             try {
                 Charge::create(array(
                     "amount" => $cart->totalPrice * 100,
-                    "currency" => "usd",
+                    "currency" => "eur",
                     "source" => $request->input('stripeToken'), // obtained with Stripe.js
                     "description" => "Test Charge"
                 ));
