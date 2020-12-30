@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::view('/file-upload', 'upload');
+Route::post('/file-upload', 'GeneralController@store');
+Route::get('/view-uploads', 'GeneralController@viewUploads');
+
 Route::get('/', [
     'uses' => 'ProductController@getIndex',
     'as' => 'product.index'
